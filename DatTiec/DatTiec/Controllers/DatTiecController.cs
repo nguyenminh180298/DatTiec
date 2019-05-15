@@ -50,9 +50,31 @@ namespace DatTiec.Controllers
             return View();
         }
 
-        public ActionResult DanhGia()
+        public ActionResult DatTiec()
         {
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            var thucdon = from td in data.ThucDons
+                          where td.MaMonAn == id
+                          select td;
+            return View(thucdon.Single());
+        }
+
+        public ActionResult Details1(int id)
+        {
+            var sanh = from s in data.Sanhs
+                          where s.MaSanh == id
+                          select s;
+            return View(sanh.Single());
+        }
+
+        public ActionResult DatNhap()
+        {
+            return View();
+        }
+
     }
 }

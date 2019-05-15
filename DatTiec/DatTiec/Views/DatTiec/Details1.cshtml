@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Details1";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông tin sảnh</h2>
+<div>
+
+    <div>
+        <img src="~/Content/Sanh/@Model.Hinh" style="width:400px;height:250px; margin-left:100px" />
+    </div>
+
+    <div>
+        <h4>Tên món: @Model.TenSanh </h4>
+        <p><span>Mô tả: </span>@Model.MoTa</p>
+        <p>Giá:<span> @Model.DonGia VNĐ </span></p>
+    </div>
+</div>
+

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DatTiecController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,9 +259,13 @@
     <Content Include="Views\DatTiec\MonAn.cshtml" />
     <Content Include="Views\DatTiec\GioiThieu.cshtml" />
     <Content Include="Views\DatTiec\LienHe.cshtml" />
+    <Content Include="Views\DatTiec\DatTiec.cshtml" />
+    <Content Include="Views\DatTiec\Details.cshtml" />
+    <Content Include="Views\DatTiec\Details1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NhanVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -51,10 +51,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	font-family: 'Open Sans', sans-serif ;
-	color: #009fb3;
-
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #009fb3;
 }
 
 h3 {
@@ -63,6 +62,11 @@ h3 {
 	color: #5f5e4e;
 	padding-top: 98px;
 	margin-bottom: 49px;
+}
+
+h4 {
+    font-size: 20px;
+    color: #b39f63;
 }
 
 .page1 h3 {
@@ -88,6 +92,7 @@ h3.head3 {
 	padding-top: 93px;
 	margin-bottom: 42px;
 }
+
 
 ul.list+h3.head3 {
 	padding-top: 40px;
