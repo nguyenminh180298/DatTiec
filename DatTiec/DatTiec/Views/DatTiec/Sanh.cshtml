@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DatTiec.Models.Sanh>
+<script src="~/Content/js/jquery.tabs.min.js"></script>
+<script src="~/Content/js/touchTouch.jquery.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+        $('.gallery a.gal').touchTouch();
+
+    })
+</script>
+@{
+    ViewBag.Title = "Sanh";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 class="head2">Sảnh</h3>
+
+        </div>
+
+        <div class="tabs tb gallery">
+            <div class="div-tabs">
+                @foreach (var sanh in Model)
+                {
+                    <div class="grid_3">
+                        <a href="~/Content/Sanh/@sanh.Hinh" class="gal"><img src="~/Content/Sanh/@sanh.Hinh" style="width:250px;height:150px"><span></span></a>
+                        <div class="col2"><span class="col3"><a href="@Url.Action("Details1","DatTiec",new { id=sanh.MaSanh})">@sanh.TenSanh</a></span> Giá thuê:@String.Format("{0:0,0}", sanh.DonGia) VNĐ</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
