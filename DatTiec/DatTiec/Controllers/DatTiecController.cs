@@ -87,15 +87,11 @@ namespace DatTiec.Controllers
             dg.SDT = int.Parse(sdt);
             var sl = collection["soluong"];
             dg.SLKhach = int.Parse(sl);
-
-
             ViewBag.BuoiList = new SelectList(data.Buois.ToList().OrderBy(n => n.MaBuoi), "MaBuoi", "BuoiToChuc");
-
-
+            dg.MaBuoi = ViewBag.BuoiList;
             dg.NgayToChuc = DateTime.Now;
-
             ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList().OrderBy(n => n.MaHinhThuc), "MaHinhThuc", "HinhThucToChuc");
-
+            dg.MaHinhThuc = ViewBag.HinhThucList;
             var dc = collection["diachi"];
             dg.DiaChi = dc;
             data.DonDatTiecNhaps.InsertOnSubmit(dg);
