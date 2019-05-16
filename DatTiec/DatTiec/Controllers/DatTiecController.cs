@@ -69,9 +69,39 @@ namespace DatTiec.Controllers
             return RedirectToAction("LienHe", "DatTiec");
         }
 
+
+        [HttpGet]
         public ActionResult DatTiec()
         {
+            ViewBag.BuoiList = new SelectList(data.Buois.ToList().OrderBy(n => n.MaBuoi), "MaBuoi", "BuoiToChuc");
+            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList().OrderBy(n => n.MaHinhThuc), "MaHinhThuc", "HinhThucToChuc");
             return View();
+        }
+
+        public ActionResult DatTiec(FormCollection collection)
+        {
+            DonDatTiecNhap dg = new DonDatTiecNhap();
+            var ht = collection["hoten"];
+            dg.HoTen = ht;
+            var sdt = collection["sdt"];
+            dg.SDT = int.Parse(sdt);
+            var sl = collection["soluong"];
+            dg.SLKhach = int.Parse(sl);
+
+
+            ViewBag.BuoiList = new SelectList(data.Buois.ToList().OrderBy(n => n.MaBuoi), "MaBuoi", "BuoiToChuc");
+
+
+            dg.NgayToChuc = DateTime.Now;
+
+            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList().OrderBy(n => n.MaHinhThuc), "MaHinhThuc", "HinhThucToChuc");
+
+            var dc = collection["diachi"];
+            dg.DiaChi = dc;
+            data.DonDatTiecNhaps.InsertOnSubmit(dg);
+            data.SubmitChanges();
+
+            return RedirectToAction("DatTiec", "DatTiec");
         }
 
         public ActionResult Details(int id)

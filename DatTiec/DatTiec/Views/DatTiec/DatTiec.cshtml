@@ -32,9 +32,13 @@
                     <br />
                     <br />
                     <label class="buoitochuc">
-                        <input type="text" placeholder="Buổi tổ chức:" name="buoi" />
+                        @Html.DropDownList("BuoiList", null, "--chọn buổi--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
                     </label>
                     <label class="ngaydat">
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
                         &nbsp;
                         &nbsp;
                         &nbsp;
@@ -42,9 +46,13 @@
                         &nbsp;
                         &nbsp;
                         &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
                     </label>
                     <label class="hinhthuc">
-                        <input type="text" placeholder="Hình thức:" name="ht" />
+                        @Html.DropDownList("HinhThucList", null, "--chọn hình thức--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
                     </label>
                     <br />
                     <br />
