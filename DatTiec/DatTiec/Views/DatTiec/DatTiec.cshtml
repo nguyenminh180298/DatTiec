@@ -4,5 +4,58 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<h2>DatTiec</h2>
 
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 class="head2">Đặt tiệc</h3>
+        </div>
+
+
+        <div class="tabs tb gallery">
+            <div class="div-tabs">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="success_wrapper">
+                    </div>
+                    <label class="name">
+                        <input type="text" placeholder="Họ tên:" name="hoten" />
+                    </label>
+                    <label class="phone">
+                        <input type="text" placeholder="Số điện thoại:" name="sdt" />
+                    </label>
+                    <label class="soluong">
+                        <input type="text" placeholder="Số lượng khách:" name="soluong" />
+                    </label>
+                    <br />
+                    <br />
+                    <label class="buoitochuc">
+                        <input type="text" placeholder="Buổi tổ chức:" name="buoi" />
+                    </label>
+                    <label class="ngaydat">
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        Ngày đặt: @DateTime.Now.ToShortDateString()
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                    </label>
+                    <label class="hinhthuc">
+                        <input type="text" placeholder="Hình thức:" name="ht" />
+                    </label>
+                    <br />
+                    <br />
+                    <label class="diachi">
+                        <textarea placeholder="Địa chỉ:" name="diachi" style="width:520px;height:50px"></textarea>
+                    </label>
+                    <br />
+                    <br />
+                    <input type="submit" value="Xác nhận">
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -45,9 +45,28 @@ namespace DatTiec.Controllers
             return View();
         }
 
+
+        [HttpGet]
         public ActionResult LienHe()
         {
             return View();
+        }
+
+        public ActionResult LienHe(FormCollection collection)
+        {
+            DanhGia dg = new DanhGia();
+            var ht = collection["hoten"];
+            dg.HoTen = ht;
+            var em = collection["email"];
+            dg.Email = em;
+            var sdt = collection["sdt"];
+            dg.SDT = int.Parse(sdt);
+            var nd = collection["noidung"];
+            dg.NoiDung = nd;
+            data.DanhGias.InsertOnSubmit(dg);
+            data.SubmitChanges();
+
+            return RedirectToAction("LienHe", "DatTiec");
         }
 
         public ActionResult DatTiec()
@@ -69,11 +88,6 @@ namespace DatTiec.Controllers
                           where s.MaSanh == id
                           select s;
             return View(sanh.Single());
-        }
-
-        public ActionResult DatNhap()
-        {
-            return View();
         }
 
     }
