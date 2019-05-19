@@ -40,6 +40,7 @@
       <Column Name="HoTenKH" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="SDT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SLKhach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="NgayLap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="NgayToChuc" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />

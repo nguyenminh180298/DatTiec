@@ -835,6 +835,8 @@ namespace DatTiec.Models
 		
 		private int _SDT;
 		
+		private int _SLKhach;
+		
 		private int _MaNV;
 		
 		private System.DateTime _NgayLap;
@@ -871,6 +873,8 @@ namespace DatTiec.Models
     partial void OnDiaChiChanged();
     partial void OnSDTChanging(int value);
     partial void OnSDTChanged();
+    partial void OnSLKhachChanging(int value);
+    partial void OnSLKhachChanged();
     partial void OnMaNVChanging(int value);
     partial void OnMaNVChanged();
     partial void OnNgayLapChanging(System.DateTime value);
@@ -972,6 +976,26 @@ namespace DatTiec.Models
 					this._SDT = value;
 					this.SendPropertyChanged("SDT");
 					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLKhach", DbType="Int NOT NULL")]
+		public int SLKhach
+		{
+			get
+			{
+				return this._SLKhach;
+			}
+			set
+			{
+				if ((this._SLKhach != value))
+				{
+					this.OnSLKhachChanging(value);
+					this.SendPropertyChanging();
+					this._SLKhach = value;
+					this.SendPropertyChanged("SLKhach");
+					this.OnSLKhachChanged();
 				}
 			}
 		}

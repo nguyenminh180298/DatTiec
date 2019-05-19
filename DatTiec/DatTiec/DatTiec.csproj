@@ -265,6 +265,13 @@
     <Content Include="Views\Shared\_LayoutNhanVien.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\DonNhan.cshtml" />
+    <Content Include="Views\NhanVien\Loai.cshtml" />
+    <Content Include="Views\NhanVien\Sanh.cshtml" />
+    <Content Include="Views\NhanVien\ThucDon.cshtml" />
+    <Content Include="Views\NhanVien\MonAn.cshtml" />
+    <Content Include="Views\NhanVien\Details.cshtml" />
+    <Content Include="Views\NhanVien\Details1.cshtml" />
+    <Content Include="Views\NhanVien\DatTiec.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
