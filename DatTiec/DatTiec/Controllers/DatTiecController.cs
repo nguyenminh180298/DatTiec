@@ -73,8 +73,8 @@ namespace DatTiec.Controllers
         [HttpGet]
         public ActionResult DatTiec()
         {
-            ViewBag.BuoiList = new SelectList(data.Buois.ToList().OrderBy(n => n.MaBuoi), "MaBuoi", "BuoiToChuc");
-            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList().OrderBy(n => n.MaHinhThuc), "MaHinhThuc", "HinhThucToChuc");
+            ViewBag.BuoiList = new SelectList(data.Buois.ToList(), "MaBuoi", "BuoiToChuc");
+            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList(), "MaHinhThuc", "HinhThucToChuc");
             return View();
         }
 
@@ -87,17 +87,19 @@ namespace DatTiec.Controllers
             dg.SDT = int.Parse(sdt);
             var sl = collection["soluong"];
             dg.SLKhach = int.Parse(sl);
-            ViewBag.BuoiList = new SelectList(data.Buois.ToList().OrderBy(n => n.MaBuoi), "MaBuoi", "BuoiToChuc");
-            dg.MaBuoi = ViewBag.BuoiList;
+            ViewBag.BuoiList = new SelectList(data.Buois.ToList(), "MaBuoi", "BuoiToChuc");
+            var buoi = collection["BuoiList"];
+            dg.MaBuoi = int.Parse(buoi);
             dg.NgayToChuc = DateTime.Now;
-            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList().OrderBy(n => n.MaHinhThuc), "MaHinhThuc", "HinhThucToChuc");
-            dg.MaHinhThuc = ViewBag.HinhThucList;
+            var hinhthuc = collection["HinhThucList"];
+            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList(), "MaHinhThuc", "HinhThucToChuc");
+            dg.MaHinhThuc = int.Parse(hinhthuc);
             var dc = collection["diachi"];
             dg.DiaChi = dc;
             data.DonDatTiecNhaps.InsertOnSubmit(dg);
             data.SubmitChanges();
 
-            return RedirectToAction("DatTiec", "DatTiec");
+            return RedirectToAction("Index", "DatTiec");
         }
 
         public ActionResult Details(int id)

@@ -233,8 +233,8 @@ C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Antlr3.Runtime.pdb
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.dll
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.pdb
+C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csprojAssemblyReference.cache

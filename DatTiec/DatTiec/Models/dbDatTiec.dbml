@@ -11,6 +11,7 @@
     <Type Name="Buoi">
       <Column Name="MaBuoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BuoiToChuc" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Buoi_DonDatTiec" Member="DonDatTiecs" ThisKey="MaBuoi" OtherKey="MaBuoi" Type="DonDatTiec" />
       <Association Name="Buoi_DonDatTiecNhap" Member="DonDatTiecNhaps" ThisKey="MaBuoi" OtherKey="MaBuoi" Type="DonDatTiecNhap" />
     </Type>
   </Table>
@@ -42,11 +43,13 @@
       <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="NgayLap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="NgayToChuc" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="HinhThucToChuc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaHinhThuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MaSanh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Buoi" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MaBuoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="DonDatTiec_CTDonDat" Member="CTDonDats" ThisKey="MaDD" OtherKey="MaDD" Type="CTDonDat" />
       <Association Name="DonDatTiec_HoaDon" Member="HoaDons" ThisKey="MaDD" OtherKey="MaDD" Type="HoaDon" />
+      <Association Name="Buoi_DonDatTiec" Member="Buoi" ThisKey="MaBuoi" OtherKey="MaBuoi" Type="Buoi" IsForeignKey="true" />
+      <Association Name="HinhThuc_DonDatTiec" Member="HinhThuc" ThisKey="MaHinhThuc" OtherKey="MaHinhThuc" Type="HinhThuc" IsForeignKey="true" />
       <Association Name="NhanVien_DonDatTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
       <Association Name="Sanh_DonDatTiec" Member="Sanh" ThisKey="MaSanh" OtherKey="MaSanh" Type="Sanh" IsForeignKey="true" />
     </Type>
@@ -69,6 +72,7 @@
     <Type Name="HinhThuc">
       <Column Name="MaHinhThuc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="HinhThucToChuc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HinhThuc_DonDatTiec" Member="DonDatTiecs" ThisKey="MaHinhThuc" OtherKey="MaHinhThuc" Type="DonDatTiec" />
       <Association Name="HinhThuc_DonDatTiecNhap" Member="DonDatTiecNhaps" ThisKey="MaHinhThuc" OtherKey="MaHinhThuc" Type="DonDatTiecNhap" />
     </Type>
   </Table>

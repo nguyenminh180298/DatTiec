@@ -262,10 +262,12 @@
     <Content Include="Views\DatTiec\DatTiec.cshtml" />
     <Content Include="Views\DatTiec\Details.cshtml" />
     <Content Include="Views\DatTiec\Details1.cshtml" />
+    <Content Include="Views\Shared\_LayoutNhanVien.cshtml" />
+    <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\NhanVien\DonNhan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NhanVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

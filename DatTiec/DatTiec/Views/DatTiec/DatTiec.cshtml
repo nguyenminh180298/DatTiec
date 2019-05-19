@@ -25,6 +25,7 @@
                     </label>
                     <label class="phone">
                         <input type="text" placeholder="Số điện thoại:" name="sdt" />
+                        @ViewData["Loi"]
                     </label>
                     <label class="soluong">
                         <input type="text" placeholder="Số lượng khách:" name="soluong" />
@@ -32,7 +33,7 @@
                     <br />
                     <br />
                     <label class="buoitochuc">
-                        @Html.DropDownList("BuoiList", null, "--chọn buổi--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                        @Html.DropDownList("BuoiList", (IEnumerable<SelectListItem>)ViewBag.BuoiList, "--chọn buổi--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
                     </label>
                     <label class="ngaydat">
                         &nbsp;
@@ -52,7 +53,7 @@
                         &nbsp;
                     </label>
                     <label class="hinhthuc">
-                        @Html.DropDownList("HinhThucList", null, "--chọn hình thức--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                        @Html.DropDownList("HinhThucList", (IEnumerable<SelectListItem>)ViewBag.HinhThucList, "--chọn hình thức--", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
                     </label>
                     <br />
                     <br />
