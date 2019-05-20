@@ -1,0 +1,62 @@
+﻿@model DatTiec.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 class="head2">Đăng nhập</h3>
+        </div>
+
+        @using (Html.BeginForm("Login", "NhanVien", FormMethod.Post))
+        {
+            <fieldset>
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+                <div class="tabs tb gallery">
+                    <div class="div-tabs">
+                        <table>
+                            <tr>
+                                <td>Tài khoản:</td>
+                                <td>@Html.TextBoxFor(a => a.TaiKhoan)</td>
+                                <td>@Html.ValidationMessageFor(a => a.TaiKhoan)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mật khẩu:
+                                </td>
+                                <td>
+                                    @Html.PasswordFor(a => a.MatKhau)
+                                </td>
+                                <td>
+                                    @Html.ValidationMessageFor(a => a.MatKhau)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Đăng nhập" />
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+
+
+
+

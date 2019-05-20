@@ -13,7 +13,14 @@ namespace DatTiec.Controllers
         // GET: NhanVien
         public ActionResult Index()
         {
-            return View();
+            if (Session["MaNV"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public ActionResult Loai()
@@ -103,6 +110,32 @@ namespace DatTiec.Controllers
             data.SubmitChanges();
 
             return RedirectToAction("Index", "NhanVien");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(NhanVien objUser)
+        {
+            if (ModelState.IsValid)
+            {
+                using (dbDatTiecDataContext data = new dbDatTiecDataContext())
+                {
+                    var obj = data.NhanViens.Where(a => a.TaiKhoan.Equals(objUser.TaiKhoan) && a.MatKhau.Equals(objUser.MatKhau)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        Session["MaNV"] = obj.MaNV.ToString();
+                        Session["TaiKhoan"] = obj.TaiKhoan.ToString();
+                        Session["HoTen"] = obj.HoTen.ToString();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            return View(objUser);
         }
     }
 }

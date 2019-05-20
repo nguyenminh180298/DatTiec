@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Home</title>
@@ -27,9 +26,23 @@
 </head>
 <body class="page1">
     <!--==============================header=================================-->
+
+
     <header>
         <div class="container_12">
             <div class="grid_12">
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <ul>
+                        <li>
+                            Xin chào: @Session["HoTen"].ToString()
+                        </li>
+                        <li>
+                            @Html.ActionLink("Đăng xuất", "Login", "NhanVien")
+                        </li>
+                    </ul>
+
+                }
                 <div class="socials">
                 </div>
                 <h1><a><img src="~/Content/images/logo.png" alt="Boo House"></a> </h1>
@@ -42,9 +55,9 @@
                             <li class="current bt-icon ">@Html.ActionLink("Trang chủ", "Index", "NhanVien")</li>
                             <li class="bt-icon">@Html.ActionLink("Sảnh", "Sanh", "NhanVien")</li>
                             <li class="bt-icon">@Html.ActionLink("Thực đơn", "ThucDon", "NhanVien")</li>
-                            <li class="bt-icon">@Html.ActionLink("Đặt tiệc", "DatTiec", "DatTiec")</li>
+                            <li class="bt-icon">@Html.ActionLink("Đặt tiệc", "DatTiec", "NhanVien")</li>
                             <li class="bt-icon">@Html.ActionLink("Đơn đặt", "DonNhan", "NhanVien")</li>
-                            <li class="bt-icon">@Html.ActionLink("Đặt tiệc", "DatTiec", "DatTiec")</li>
+                            <li class="bt-icon">@Html.ActionLink("Tra cứu", "TraCuu", "NhanVien")</li>
                         </ul>
                     </nav>
 
@@ -65,7 +78,7 @@
 
     <footer>
         <div class="container_12">
-            <div class="grid_6 prefix_3">
+            <div class="grid_6 prefix_3" style="text-align:center">
                 <a><img src="~/Content/images/f_logo.png" alt=""></a>
                 <div class="copy">
                     &copy; 2013 | <a>Privacy Policy</a>

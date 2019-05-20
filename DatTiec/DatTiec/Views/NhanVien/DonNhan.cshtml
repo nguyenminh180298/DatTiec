@@ -1,7 +1,8 @@
 ﻿<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="icon" href="~/Content/images/favicon.ico">
 <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
 <link rel="stylesheet" href="~/Content/css/style.css">
@@ -31,11 +32,11 @@
 <div class="content">
     <div class="container">
         <div class="container_12">
-            <table class="table">
+            <table class="table table-dark table-hover">
                 <thead>
                     <tr>
                         <th>Họ tên</th>
-                        <th>Số điện thoại</th>
+                        <th>Điện thoại</th>
                         <th>Số khách</th>
                         <th>Buổi</th>
                         <th>Ngày đặt</th>
@@ -44,7 +45,6 @@
                         <th></th>
                     </tr>
                 </thead>
-
                 @foreach (var item in Model)
                 {
                     <tbody>
@@ -59,19 +59,19 @@
                                 @Html.DisplayFor(modelItem => item.SLKhach)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Buoi)
+                                @Html.DisplayFor(modelItem => item.Buoi.BuoiToChuc)
                             </td>
                             <td>
                                 @String.Format("{0:dd/MM/yyyy}", item.NgayToChuc)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.HinhThuc)
+                                @Html.DisplayFor(modelItem => item.HinhThuc.HinhThucToChuc)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.DiaChi)
                             </td>
                             <td>
-                                
+                                <input type="submit" value="Xóa" />
                             </td>
                         </tr>
                     </tbody>
