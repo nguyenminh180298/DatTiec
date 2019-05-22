@@ -26,7 +26,7 @@
 </head>
 <body class="page1">
     <!--==============================header=================================-->
-    <header>
+    <header >
         <div class="container_12">
             <div class="grid_12">
                 <div class="socials">
@@ -35,7 +35,7 @@
                 <div class="menu_block">
 
 
-                    <nav id="bt-menu" class="bt-menu">
+                    <nav id="bt-menu" class="bt-menu bt-menu-open">
                         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
                         <ul>
                             <li class="current bt-icon ">@Html.ActionLink("Trang chủ", "Index", "DatTiec")</li>
@@ -76,10 +76,10 @@
         $(document).ready(function () {
             $(".bt-menu-trigger").toggle(
                 function () {
-                    $('.bt-menu').addClass('bt-menu-open');
-                },
-                function () {
                     $('.bt-menu').removeClass('bt-menu-open');
+                },
+                function () {                   
+                    $('.bt-menu').addClass('bt-menu-open');
                 }
             );
         })
