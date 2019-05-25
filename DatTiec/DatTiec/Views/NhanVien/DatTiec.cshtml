@@ -1,8 +1,10 @@
-﻿
+﻿@using DatTiec.Models
+
 @{
     ViewBag.Title = "DatTiec";
     Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
 }
+
 
 
 <div class="content">
@@ -11,7 +13,9 @@
         <div class="grid_12">
             <h3 class="head2">Đặt tiệc</h3>
         </div>
-
+        @{
+            NhanVien nv = (NhanVien)Session["TaiKhoan"];
+        }
 
         <div class="tabs tb gallery">
             <div class="div-tabs">
@@ -24,8 +28,9 @@
                         <input type="text" placeholder="Họ tên:" name="hoten" />
                     </label>
                     <label class="phone">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" placeholder="Số điện thoại:" name="sdt" />
-                        @ViewData["Loi"]
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="soluong">
                         <input type="text" placeholder="Số lượng khách:" name="soluong" />
@@ -36,9 +41,9 @@
                         @Html.DropDownList("HinhThucList", null, "---Chọn hình thức---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
                     </label>
                     <label class="sanh">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @Html.DropDownList("SanhList", null, "---Chọn sảnh---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="buoitochuc">
                         @Html.DropDownList("BuoiList", null, "---Chọn buổi---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
@@ -49,17 +54,18 @@
                         Ngày đặt: @DateTime.Now.ToShortDateString()
                     </label>
                     <label class="ngaytohuc">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Ngày tổ chức: @DateTime.Now.ToShortDateString()
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Ngày tổ chức:
+                        <input type="date" placeholder="Ngày tổ chức:" name="NgayToChuc" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="ngaytohuc">
-                        Nhân viên: Nguyễn Văn A
+                        Nhân viên đặt: @nv.HoTen
                     </label>
                     <br />
                     <br />
                     <label class="diachi">
-                        <textarea placeholder="Địa chỉ:" name="diachi" style="width:520px;height:50px"></textarea>
+                        <textarea placeholder="Địa chỉ:" name="diachi" style="width:610px;height:70px"></textarea>
                     </label>
                     <br />
                     <br />

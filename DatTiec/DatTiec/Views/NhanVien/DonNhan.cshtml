@@ -23,30 +23,30 @@
     })
 </script>
 @model IEnumerable<DatTiec.Models.DonDatTiecNhap>
-@{
+    @{
     ViewBag.Title = "DonNhan";
     Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
-}
+    }
 
-<h3 class="head2">Đơn tiệc đã nhận</h3>
-<div class="content">
-    <div class="container">
-        <div class="container_12">
-            <table class="table table-dark table-hover">
-                <thead>
-                    <tr>
-                        <th>Họ tên</th>
-                        <th>Điện thoại</th>
-                        <th>Số khách</th>
-                        <th>Buổi</th>
-                        <th>Ngày đặt</th>
-                        <th>Hình thức</th>
-                        <th>Địa chỉ</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                @foreach (var item in Model)
-                {
+    <h3 class="head2">Đơn tiệc đã nhận</h3>
+    <div class="content">
+        <div class="container">
+            <div class="container_12">
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Điện thoại</th>
+                            <th>Số khách</th>
+                            <th>Buổi</th>
+                            <th>Ngày đặt</th>
+                            <th>Hình thức</th>
+                            <th>Địa chỉ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
                     <tbody>
                         <tr>
                             <td>
@@ -75,8 +75,8 @@
                             </td>
                         </tr>
                     </tbody>
-                }
-            </table>
+                    }
+                </table>
+            </div>
         </div>
     </div>
-</div>
