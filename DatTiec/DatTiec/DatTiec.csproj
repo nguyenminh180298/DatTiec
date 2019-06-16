@@ -136,17 +136,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatTiecController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\dbDatTiec.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbDatTiec.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +218,51 @@
     <Content Include="Content\js\superfish.js" />
     <Content Include="Content\js\TMForm.js" />
     <Content Include="Content\js\touchTouch.jquery.js" />
+    <Content Include="Content\Login\css\main.css" />
+    <Content Include="Content\Login\css\util.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Login\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\Login\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\Login\fonts\JosefinSans\OFL.txt" />
+    <Content Include="Content\Login\fonts\source-sans-pro\OFL.txt" />
+    <Content Include="Content\Login\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\Login\images\icons\favicon.ico" />
+    <Content Include="Content\Login\images\icons\map-marker.png" />
+    <Content Include="Content\Login\js\main.js" />
+    <Content Include="Content\Login\vendor\animate\animate.css" />
+    <Content Include="Content\Login\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\Login\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\Login\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\Login\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Login\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\Login\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\Login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\Login\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Login\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Login\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\Login\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\Login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\Login\vendor\select2\select2.css" />
+    <Content Include="Content\Login\vendor\select2\select2.js" />
+    <Content Include="Content\Login\vendor\select2\select2.min.css" />
+    <Content Include="Content\Login\vendor\select2\select2.min.js" />
     <Content Include="Content\Sanh\A.jpg" />
     <Content Include="Content\ThucDon\BoNuong.jpg" />
     <Content Include="Content\ThucDon\CocaCola.jpg" />
@@ -238,6 +286,79 @@
       <LastGenOutput>dbDatTiec.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Bold.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Italic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Light.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Regular.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-SemiBold.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-SemiBoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Thin.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-ThinItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Black.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-BlackItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Bold.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-ExtraLight.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-ExtraLightItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Italic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Light.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Regular.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-SemiBold.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-SemiBoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Models\dbDatTiec.dbml.layout">
       <DependentUpon>dbDatTiec.dbml</DependentUpon>
     </None>
@@ -283,6 +404,38 @@
     <Content Include="Views\NhanVien\Details1.cshtml" />
     <Content Include="Views\NhanVien\DatTiec.cshtml" />
     <Content Include="Views\NhanVien\Login.cshtml" />
+    <Content Include="Views\NhanVien\Menu.cshtml" />
+    <Content Include="Views\NhanVien\XacNhanDonHang.cshtml" />
+    <Content Include="Views\NhanVien\DonTiecNhap.cshtml" />
+    <Content Include="Views\NhanVien\DonTiecLap.cshtml" />
+    <Content Include="Views\NhanVien\ChiTietHD.cshtml" />
+    <Content Include="Views\NhanVien\XoaDonDatNhap.cshtml" />
+    <Content Include="Views\NhanVien\TraCuu.cshtml" />
+    <Content Include="Views\NhanVien\KetQuaTimKiem1.cshtml" />
+    <Content Include="Views\NhanVien\KetQuaTimKiem2.cshtml" />
+    <Content Include="Views\NhanVien\KetQuaTimKiem3.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Loai.cshtml" />
+    <Content Include="Views\Admin\Sanh.cshtml" />
+    <Content Include="Views\Admin\ThucDon.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Details1.cshtml" />
+    <Content Include="Views\Admin\MonAn.cshtml" />
+    <Content Include="Views\Admin\ThemSanh.cshtml" />
+    <Content Include="Views\Admin\ThemThucDon.cshtml" />
+    <Content Include="Views\Admin\XoaSanh.cshtml" />
+    <Content Include="Views\Admin\XoaThucDon.cshtml" />
+    <Content Include="Views\Admin\SuaSanh.cshtml" />
+    <Content Include="Views\Admin\SuaThucDon.cshtml" />
+    <Content Include="Views\Admin\TaiKhoan.cshtml" />
+    <Content Include="Views\Admin\XoaTK.cshtml" />
+    <Content Include="Views\Admin\ThemTK.cshtml" />
+    <Content Include="Views\Admin\SuaTK.cshtml" />
+    <Content Include="Views\Admin\DanhGia.cshtml" />
+    <Content Include="Views\Admin\XoaDanhGia.cshtml" />
+    <Content Include="Views\Admin\ChiTietDG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

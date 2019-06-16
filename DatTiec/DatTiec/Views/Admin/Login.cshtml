@@ -1,0 +1,65 @@
+﻿@model DatTiec.Models.AdminLogin
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 class="head2" style="color:red">@ViewBag.ThongBao</h3>
+            <h3 class="head2">Đăng nhập</h3>
+        </div>
+
+        @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+        {
+            <fieldset>
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+                <div class="tabs tb gallery">
+                    <div class="div-tabs">
+                        <table>
+                            <tr>
+                                <td>Tài khoản:</td>
+                                <td>@Html.TextBoxFor(a => a.UserAdmin)</td>
+                                <td>@Html.ValidationMessageFor(a => a.UserAdmin)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mật khẩu:
+                                </td>
+                                <td>
+                                    @Html.PasswordFor(a => a.PassAdmin)
+                                </td>
+                                <td>
+                                    @Html.ValidationMessageFor(a => a.PassAdmin)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Đăng nhập" />
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+
+
+
+
+
+

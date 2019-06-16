@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DatTiec.Models.DonDatTiec>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="icon" href="~/Content/images/favicon.ico">
+<link rel="shortcut icon" href="~/Content/images/favicon.ico" />
+<link rel="stylesheet" href="~/Content/css/style.css">
+<script src="~/Content/js/jquery.js"></script>
+<script src="~/Content/js/jquery-migrate-1.1.1.js"></script>
+<script src="~/Content/js/jquery.equalheights.js"></script>
+<script src="~/Content/js/jquery.ui.totop.js"></script>
+<script src="~/Content/js/jquery.easing.1.3.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".block1").mouseover(function () {
+            $(this).addClass("blur");
+        });
+        $(".block1").mouseout(function () {
+            $(this).removeClass("blur");
+        });
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    })
+</script>
+@{
+    /**/
+
+    ViewBag.Title = "KetQuaTimKiem3";
+    Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+}
+<h3 style="color: red; text-align:center; margin-top:10px; margin-bottom:10px"> @ViewBag.Thongbao</h3>
+<h3 class="head2">Kết quả tìm kiếm</h3>
+<div class="content">
+    <div class="container">
+        <div class="container_12">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Điện thoại</th>
+                        <th>Số khách</th>
+                        <th>Ngày tổ chức</th>
+                        <th>Ngày đặt</th>
+                        <th>Buổi</th>
+                        <th>Hình thức</th>
+                        <th>Sảnh</th>
+                        <th>Nhân viên</th>
+                        <th>Địa chỉ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HoTenKH)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SDT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SLKhach)
+                            </td>
+                            <td>
+                                @String.Format("{0:dd/MM/yyyy}", item.NgayToChuc)
+                            </td>
+                            <td>
+                                @String.Format("{0:dd/MM/yyyy}", item.NgayLap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Buoi.BuoiToChuc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HinhThuc.HinhThucToChuc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sanh.TenSanh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NhanVien.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiaChi)
+                            </td>
+                            <td>
+                                <a style="text-decoration:none;color:#00ffff" href="@Url.Action("ChiTietHD", "NhanVien", new {id = item.MaDD})">
+                                    Chi tiết
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

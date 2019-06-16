@@ -237,7 +237,6 @@ C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csproj.
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.dll
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.pdb
-C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -410,3 +409,4 @@ C:\Users\Administrator\Desktop\New folder\DatTiec\DatTiec\DatTiec\obj\Debug\DatT
 C:\Users\Administrator\Desktop\New folder\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csproj.CopyComplete
 C:\Users\Administrator\Desktop\New folder\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.dll
 C:\Users\Administrator\Desktop\New folder\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.pdb
+C:\Users\Administrator\Desktop\DatTiec\DatTiec\DatTiec\obj\Debug\DatTiec.csprojAssemblyReference.cache

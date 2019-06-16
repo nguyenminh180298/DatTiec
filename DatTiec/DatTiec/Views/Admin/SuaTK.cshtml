@@ -1,0 +1,101 @@
+﻿@model DatTiec.Models.NhanVien
+@{
+    ViewBag.Title = "SuaTK";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 style="color:red">Sửa thông tin tài khoản</h3>
+        </div>
+
+        @using (Html.BeginForm("SuaTK", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" style="text-align:center;font-size:18px">
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.MaNV)
+
+            <div class="form-group">
+                Mã sảnh:
+                <div class="col-md-10">
+                    <div style="font:18px;padding: 5px 0 0 5px">@Model.MaNV</div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Họ tên:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HoTen)
+                    @Html.ValidationMessageFor(model => model.HoTen)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Giới tính:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GioiTinh)
+                    @Html.ValidationMessageFor(model => model.GioiTinh)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Ngày sinh:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgaySinh)
+                    @Html.ValidationMessageFor(model => model.NgaySinh)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Email:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Số điện thoại:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT)
+                    @Html.ValidationMessageFor(model => model.SDT)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Tài khoản:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TaiKhoan)
+                    @Html.ValidationMessageFor(model => model.TaiKhoan)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                Mật khẩu:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MatKhau)
+                    @Html.ValidationMessageFor(model => model.MatKhau)
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+        <br />
+        <br />
+        <div style="text-decoration:none;font-size:20px;text-align:center">
+            @Html.ActionLink("Quay về danh sách tài khoản", "TaiKhoan")
+        </div>
+    </div>
+</div>
+

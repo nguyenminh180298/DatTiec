@@ -1,0 +1,53 @@
+﻿@using DatTiec.Models
+@{
+    ViewBag.Title = "TraCuu";
+    Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
+}
+
+<div class="content">
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 class="head2">Nhập thông tin</h3>
+            <div class="content">
+                <div class="container">
+                    <div class="container_12">
+                        <form action="/NhanVien/KetQuaTimKiem1" method="post">
+                            <a style="text-align:center;font-size:20px;margin-left:260px;color:black;font-weight:bold;text-decoration:none">Sảnh:</a>
+                            <input type="text" name="sanh" id="input_field" placeholder="" style="margin-top:27px;margin-left:20px" />
+                            @Html.DropDownList("SanhList", null, "---Chọn sảnh---")
+                            <br />
+                            <br />
+                            <input type="submit" value="Tìm" alt="login" id="submit_btn" style="margin-left:400px" />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </form>
+
+                        <form action="/NhanVien/KetQuaTimKiem2" method="post">
+                            <a style="text-align:center;font-size:20px;margin-left:260px;color:black;font-weight:bold;text-decoration:none">Buổi:</a>
+                            <input type="text" name="buoi" id="input_field" placeholder="" style="margin-top:27px;margin-left:20px" />
+                            @Html.DropDownList("BuoiList", null, "---Chọn buổi---")
+                            <br />
+                            <br />
+                            <input type="submit" value="Tìm" alt="login" id="submit_btn" style="margin-left:400px" />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </form>
+
+                        <form action="/NhanVien/KetQuaTimKiem3" method="post">
+                            <a style="text-align:center;font-size:20px;margin-left:180px;color:black;font-weight:bold;text-decoration:none">Ngày tổ chức:</a>
+                            <input type="date" name="ntc" id="input_field" placeholder="" style="margin-top:27px;margin-left:20px" />
+                            <br />
+                            <br />
+                            <input type="submit" value="Tìm" alt="login" id="submit_btn" style="margin-left:400px" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

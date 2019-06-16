@@ -1,4 +1,23 @@
-﻿
+﻿<style type="text/css">
+    #DatMua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        margin-left:420px;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #DatMua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
@@ -23,8 +42,19 @@
                 <br />
                 <p>Giá:<span> @String.Format("{0:0,0}", Model.DonGia) VNĐ </span></p>
                 <br />
-                <h4 class="bt-icon">@Html.ActionLink("Quay lại trang thực đơn", "ThucDon", "NhanVien")</h4>
+                <div>
+                    <div id="DatMua">
+                        <a href="@Url.Action("ThemMenu","NhanVien", new { @iMaMonAn= @Model.MaMonAn, @strURL=Request.Url.ToString()})">
+                            Đặt
+                        </a>
+                    </div>
+                </div>
+                <br /><br /><br /><br /><br /><br />
+                <div>
+                    <h4 class="bt-icon">@Html.ActionLink("Quay lại trang thực đơn", "ThucDon", "NhanVien")</h4>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

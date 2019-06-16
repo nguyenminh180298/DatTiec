@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "ThemTK";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 style="color:red">Thêm tài khoản</h3>
+            <div style="text-align:center">
+                @ViewBag.ThongBao1
+                @ViewBag.ThongBao2
+                @ViewBag.ThongBao3
+                @ViewBag.ThongBao4
+                @ViewBag.ThongBao5
+                @ViewBag.ThongBao6
+                @ViewBag.ThongBao7
+                @ViewBag.ThongBao8
+                <br />
+                <br />
+            </div>
+        </div>
+        <table style="margin-left:300px;text-align:center; font-size:15px">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <h4 style="text-align:center;font-size:20px">Thông tin tài khoản</h4>
+                <hr />
+                <br />
+                <tr style="height:40px">
+                    <td>Họ tên nhân viên:</td>
+                    <td>
+                        @Html.TextBox("HoTen")
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Giới tính:</td>
+                    <td>
+                        @Html.TextBox("GioiTinh")
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Ngày sinh:</td>
+                    <td>
+                        <input type="date" name="NgaySinh" />
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Email:</td>
+                    <td>
+                        @Html.TextBox("Email")
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Số điện thoại:</td>
+                    <td>
+                        @Html.TextBox("SoDienThoai")
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Tên đăng nhập:</td>
+                    <td>
+                        @Html.TextBox("TaiKhoan")
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Mật khẩu:</td>
+                    <td>
+                        @Html.Password("MatKhau")
+
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td>Mật khẩu nhập lại:</td>
+                    <td>
+                        @Html.Password("MatKhauNhapLai")
+                    </td>
+                </tr>
+                <tr style="height:40px">
+                    <td></td>
+                    <td>
+                        <br />
+                        <br />
+                        <input type="Submit" value="Thêm tài khoản">
+                        
+                    </td>
+                </tr>
+            }
+        </table>
+        <div style="text-decoration:none;font-size:20px;text-align:center">
+            <br />
+            <br />
+            @Html.ActionLink("Quay về danh sách tài khoản", "TaiKhoan")
+        </div>
+    </div>
+    </div>
+
+

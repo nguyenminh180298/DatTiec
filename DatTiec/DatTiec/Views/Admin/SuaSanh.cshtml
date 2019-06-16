@@ -1,0 +1,82 @@
+﻿@model DatTiec.Models.Sanh
+
+@{
+    ViewBag.Title = "SuaSanh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h3 style="color:red">Sửa thông tin sảnh</h3>
+        </div>
+
+            @using (Html.BeginForm("SuaSanh", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal" style="text-align:center;font-size:18px">
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.MaSanh)
+
+                    <div class="form-group">
+                        Mã sảnh:
+                        <div class="col-md-10">
+                            <div style="font:18px;padding: 5px 0 0 5px">@Model.MaSanh</div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        Tên sảnh:
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenSanh)
+                            @Html.ValidationMessageFor(model => model.TenSanh)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        Hình:
+                        <div class="col-md-10">
+                            Chọn ảnh mới:
+                            <input type="file" name="fileupload" />
+                            <br />
+                            <img src="@Url.Content("~/Content/Sanh"+Model.Hinh)" style="width:120px" />(Ảnh hiện tại)
+                            @ViewBag.ThongBao
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        Mô tả:
+                        <div class="col-md-10">
+                            <textarea name="MoTa">@Model.MoTa</textarea>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        Đơn giá thuê:
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DonGia)
+                            @Html.ValidationMessageFor(model => model.DonGia)
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Lưu" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <br />
+        <br />
+            <div style="text-decoration:none;font-size:20px;text-align:center">
+                @Html.ActionLink("Quay về danh sách sảnh", "Sanh")
+            </div>
+        </div>
+    </div>
+
+
+

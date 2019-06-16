@@ -1,17 +1,51 @@
 ﻿@using DatTiec.Models
+@model List<Menu>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="icon" href="~/Content/images/favicon.ico">
+<link rel="shortcut icon" href="~/Content/images/favicon.ico" />
+<link rel="stylesheet" href="~/Content/css/style.css">
+<script src="~/Content/js/jquery.js"></script>
+<script src="~/Content/js/jquery-migrate-1.1.1.js"></script>
+<script src="~/Content/js/jquery.equalheights.js"></script>
+<script src="~/Content/js/jquery.ui.totop.js"></script>
+<script src="~/Content/js/jquery.easing.1.3.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".block1").mouseover(function () {
+            $(this).addClass("blur");
+        });
+        $(".block1").mouseout(function () {
+            $(this).removeClass("blur");
+        });
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    })
+</script>
 
 @{
     ViewBag.Title = "DatTiec";
     Layout = "~/Views/Shared/_LayoutNhanVien.cshtml";
 }
 
-
-
 <div class="content">
-    <div class="ic"></div>
     <div class="container_12">
         <div class="grid_12">
             <h3 class="head2">Đặt tiệc</h3>
+            <div style="text-align:center">
+                @ViewBag.ThongBao1
+                @ViewBag.ThongBao2
+                @ViewBag.ThongBao3
+                @ViewBag.ThongBao4
+                @ViewBag.ThongBao5
+                @ViewBag.ThongBao6
+                @ViewBag.ThongBao7
+                @ViewBag.ThongBao8
+                <br />
+            </div>
         </div>
         @{
             NhanVien nv = (NhanVien)Session["TaiKhoan"];
@@ -28,9 +62,9 @@
                         <input type="text" placeholder="Họ tên:" name="hoten" />
                     </label>
                     <label class="phone">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" placeholder="Số điện thoại:" name="sdt" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="soluong">
                         <input type="text" placeholder="Số lượng khách:" name="soluong" />
@@ -38,15 +72,15 @@
                     <br />
                     <br />
                     <label class="hinhthuc">
-                        @Html.DropDownList("HinhThucList", null, "---Chọn hình thức---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                        @Html.DropDownList("HinhThucList", null, "---Chọn hình thức---")
                     </label>
                     <label class="sanh">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        @Html.DropDownList("SanhList", null, "---Chọn sảnh---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.DropDownList("SanhList", null, "---Chọn sảnh---")
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="buoitochuc">
-                        @Html.DropDownList("BuoiList", null, "---Chọn buổi---", htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                        @Html.DropDownList("BuoiList", null, "---Chọn buổi---")
                     </label>
                     <br />
                     <br />
@@ -55,8 +89,7 @@
                     </label>
                     <label class="ngaytohuc">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Ngày tổ chức:
-                        <input type="date" placeholder="Ngày tổ chức:" name="NgayToChuc" />
+                        Ngày tổ chức: <input type="date" placeholder="Ngày tổ chức:" name="NgayToChuc" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="ngaytohuc">
@@ -65,7 +98,7 @@
                     <br />
                     <br />
                     <label class="diachi">
-                        <textarea placeholder="Địa chỉ:" name="diachi" style="width:610px;height:70px"></textarea>
+                        <textarea placeholder="Địa chỉ:" name="diachi" style="width:650px;height:70px"></textarea>
                     </label>
                     <br />
                     <br />
@@ -75,3 +108,48 @@
         </div>
     </div>
 </div>
+
+<h3>Chi tiết đơn đặt</h3>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Mã món ăn</td>
+                <td>Tên món ăn</td>
+                <td>Hình</td>
+                <td>Số lượng</td>
+                <td>Đơn giá</td>
+                <td>Thành tiền</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.iMaMonAn</td>
+                    <td>@item.sTenMonAn</td>
+                    <td><img src="~/Content/ThucDon/@item.sHinh" style="width:170px;height:150px"></td>
+                    @using (Html.BeginForm("CapNhatMenu", "NhanVien", new { @iMaSP = item.iMaMonAn }))
+                    {
+                        <td>
+                            <input type="number" min="1" name="txtSoluong" value="@item.iSoluong" style="background-color:yellow;width:50px" />
+                        </td>
+                        <td>@String.Format("{0:0,0}", item.dDonGia)</td>
+                        <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                    }
+                </tr>
+            }
+            <tr>
+                <td colspan="4">Số lượng sản phẩm:@ViewBag.Tongsoluong</td>
+                <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+            </tr>
+            <tr style="font-weight:bold;color:blue;text-align:right">
+                <td colspan="6">
+                    @Html.ActionLink("Trở về menu", "Menu", "NhanVien")
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

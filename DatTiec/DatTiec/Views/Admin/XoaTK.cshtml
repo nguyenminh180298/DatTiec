@@ -1,0 +1,90 @@
+﻿@model DatTiec.Models.NhanVien
+
+@{
+    ViewBag.Title = "XoaTK";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h1 style="font-size:20px; margin-top:50px">Xác nhận thông tin tài khoản cần xóa</h1>
+            <h1 style="color:red;font-size:20px">Bạn quyết định xóa tài khoản này?</h1>
+        </div>
+        <div style="text-align:center;font-size:18px">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt style="font-weight:bold">
+                    Họ tên:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.HoTen)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Giới tính:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.GioiTinh)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Ngày sinh:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.NgaySinh)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Email:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.Email)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Số điện thoại:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.SDT)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Tài khoản:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.TaiKhoan)
+                </dt>
+                <br />
+                <dt style="font-weight:bold">
+                    Mật khẩu:
+                </dt>
+
+                <dt>
+                    @Html.DisplayFor(model => model.MatKhau)
+                </dt>
+                <br />
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Trở về danh sách tài khoản", "TaiKhoan")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

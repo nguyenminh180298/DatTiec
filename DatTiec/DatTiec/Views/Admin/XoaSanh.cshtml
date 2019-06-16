@@ -1,0 +1,66 @@
+﻿@model DatTiec.Models.Sanh
+
+@{
+    ViewBag.Title = "XoaSanh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="ic"></div>
+    <div class="container_12">
+        <div class="grid_12">
+            <h1 style="font-size:20px; margin-top:50px">Xác nhận thông tin sảnh cần xóa</h1>
+            <h1 style="color:red;font-size:20px">Bạn quyết định xóa sảnh?</h1>
+        </div>
+            <div style="text-align:center;font-size:18px">
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt style="font-weight:bold">
+                        Tên sảnh:
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayFor(model => model.TenSanh)
+                    </dt>
+                    <br />
+                    <dt style="font-weight:bold">
+                        Hình:
+                    </dt>
+
+                    <dt>
+                        <img src="@Url.Content("~/Content/Sanh/"+Model.Hinh)" style="width:350px;height:250px" />
+                    </dt>
+                    <br />
+                    <dt style="font-weight:bold">
+                        Mô tả:
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayFor(model => model.MoTa)
+                    </dt>
+                    <br />
+                    <dt style="font-weight:bold">
+                        Đơn giá thuê:
+                    </dt>
+
+                    <dt>
+                        @String.Format("{0:0,0}", Model.DonGia) VNĐ
+                    </dt>
+                    <br />
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Xóa" class="btn btn-default" /> |
+                        @Html.ActionLink("Trở về danh sách sảnh", "Sanh")
+                    </div>
+                }
+            </div>
+    </div>
+    </div>
+
+
+

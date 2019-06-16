@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DatTiec.Models.LoaiThucDon>
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("MonAn","Admin",new { id=item.MaLoai}) ">
+        @item.TenLoai
+        &nbsp;
+        &nbsp;
+        &nbsp;
+    </a>
+}
+

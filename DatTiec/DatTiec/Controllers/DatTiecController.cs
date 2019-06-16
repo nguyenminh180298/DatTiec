@@ -56,17 +56,36 @@ namespace DatTiec.Controllers
         {
             DanhGia dg = new DanhGia();
             var ht = collection["hoten"];
-            dg.HoTen = ht;
             var em = collection["email"];
-            dg.Email = em;
             var sdt = collection["sdt"];
-            dg.SDT = int.Parse(sdt);
             var nd = collection["noidung"];
-            dg.NoiDung = nd;
-            data.DanhGias.InsertOnSubmit(dg);
-            data.SubmitChanges();
-
-            return RedirectToAction("LienHe", "DatTiec");
+            if (String.IsNullOrEmpty(ht))
+            {
+                ViewBag.ThongBao1 = "Họ tên không được để trống";
+            }
+            else if (String.IsNullOrEmpty(em))
+            {
+                ViewBag.ThongBao2 = "Phải nhập email";
+            }
+            else if (String.IsNullOrEmpty(sdt))
+            {
+                ViewBag.ThongBao3 = "Phải nhập số điện thoại";
+            }
+            else if (String.IsNullOrEmpty(nd))
+            {
+                ViewBag.ThongBao4 = "Phải nhập nội dung";
+            }
+            else
+            {
+                dg.HoTen = ht;
+                dg.Email = em;
+                dg.SDT = int.Parse(sdt);
+                dg.NoiDung = nd;
+                data.DanhGias.InsertOnSubmit(dg);
+                data.SubmitChanges();
+                return RedirectToAction("LienHe", "DatTiec");
+            }
+            return this.LienHe();
         }
 
 
@@ -82,24 +101,52 @@ namespace DatTiec.Controllers
         {
             DonDatTiecNhap dg = new DonDatTiecNhap();
             var ht = collection["hoten"];
-            dg.HoTen = ht;
             var sdt = collection["sdt"];
-            dg.SDT = int.Parse(sdt);
             var sl = collection["soluong"];
-            dg.SLKhach = int.Parse(sl);
             ViewBag.BuoiList = new SelectList(data.Buois.ToList(), "MaBuoi", "BuoiToChuc");
             var buoi = collection["BuoiList"];
-            dg.MaBuoi = int.Parse(buoi);
             dg.NgayToChuc = DateTime.Now;
             var hinhthuc = collection["HinhThucList"];
-            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList(), "MaHinhThuc", "HinhThucToChuc");
-            dg.MaHinhThuc = int.Parse(hinhthuc);
+            ViewBag.HinhThucList = new SelectList(data.HinhThucs.ToList(), "MaHinhThuc", "HinhThucToChuc");            
             var dc = collection["diachi"];
-            dg.DiaChi = dc;
-            data.DonDatTiecNhaps.InsertOnSubmit(dg);
-            data.SubmitChanges();
-
-            return RedirectToAction("Index", "DatTiec");
+            if (String.IsNullOrEmpty(ht))
+            {
+                ViewBag.ThongBao1 = "Họ tên không được để trống";
+            }
+            else if (String.IsNullOrEmpty(sdt))
+            {
+                ViewBag.ThongBao2 = "Phải nhập số điện thoại";
+            }
+            else if (String.IsNullOrEmpty(sl))
+            {
+                ViewBag.ThongBao3 = "Phải nhập số lượng khách";
+            }
+            else if (String.IsNullOrEmpty(buoi))
+            {
+                ViewBag.ThongBao4 = "Phải nhập buối tổ chức";
+            }
+            else if (String.IsNullOrEmpty(hinhthuc))
+            {
+                ViewBag.ThongBao5 = "Phải nhập hình thức tổ chức";
+            }
+            else if (String.IsNullOrEmpty(dc))
+            {
+                ViewBag.ThongBao6 = "Phải nhập địa chỉ";
+            }
+            else
+            {
+                dg.HoTen = ht;
+                dg.SDT = int.Parse(sdt);
+                dg.SLKhach = int.Parse(sl);
+                dg.MaBuoi = int.Parse(buoi);
+                dg.NgayToChuc = DateTime.Now;
+                dg.MaHinhThuc = int.Parse(hinhthuc);
+                dg.DiaChi = dc;
+                data.DonDatTiecNhaps.InsertOnSubmit(dg);
+                data.SubmitChanges();
+                return RedirectToAction("Index", "DatTiec");
+            }
+            return this.DatTiec();
         }
 
         public ActionResult Details(int id)
