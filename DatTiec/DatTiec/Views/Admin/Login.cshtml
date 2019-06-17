@@ -4,59 +4,100 @@
     ViewBag.Title = "Login";
 }
 
-<div class="content">
-    <div class="ic"></div>
-    <div class="container_12">
-        <div class="grid_12">
-            <h3 class="head2" style="color:red">@ViewBag.ThongBao</h3>
-            <h3 class="head2">Đăng nhập</h3>
-        </div>
+<head>
+    <title>Admin</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Matrimony Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/Content/Login/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/Content/css/fontawesome-all.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,latin-ext"
+          rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+
+<body>
+    <!-- title -->
+    <h1>Hệ thống Admin</h1>
+    <!-- //title -->
+    <!-- content -->
+    <div class="sub-main-w3">
         @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
         {
-            <fieldset>
+        <fieldset>
 
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-                @if (@ViewBag.Message != null)
-                {
-                    <div style="border: 1px solid red">
-                        @ViewBag.Message
-                    </div>
-                }
-                <div class="tabs tb gallery">
-                    <div class="div-tabs">
-                        <table>
-                            <tr>
-                                <td>Tài khoản:</td>
-                                <td>@Html.TextBoxFor(a => a.UserAdmin)</td>
-                                <td>@Html.ValidationMessageFor(a => a.UserAdmin)</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Mật khẩu:
-                                </td>
-                                <td>
-                                    @Html.PasswordFor(a => a.PassAdmin)
-                                </td>
-                                <td>
-                                    @Html.ValidationMessageFor(a => a.PassAdmin)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="submit" value="Đăng nhập" />
-                                </td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
                 </div>
+            }
+            <form method="post">
+
+                <h2>
+                    Đăng nhập hệ thống admin
+                    <i class="fas fa-level-down-alt"></i>
+                </h2>
+                <div class="form-style-agile">
+                    <label>
+                        Tên đăng nhập
+                        <i class="fas fa-user"></i>
+                    </label>
+                    @Html.TextBoxFor(a => a.UserAdmin)
+                    @Html.ValidationMessageFor(a => a.UserAdmin)
+                </div>
+                <div class="form-style-agile">
+                    <label>
+                        Mật khẩu
+                        <i class="fas fa-unlock-alt"></i>
+                    </label>
+                    @Html.PasswordFor(a => a.PassAdmin)
+                    @Html.ValidationMessageFor(a => a.PassAdmin)
+                </div>
+                <!-- checkbox -->
+                <div class="wthree-text">
+                    <ul>
+                        <li>
+                            <label class="anim">
+                                <input type="checkbox" class="checkbox" required="">
+                                <span>Ghi nhớ</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //checkbox -->
+                <input type="submit" value="Đăng nhập">
+            </form>
             </fieldset>
-        }
+            }
     </div>
-</div>
+    <!-- //content -->
+    <!-- copyright -->
+    <div class="footer">
+    </div>
+    <!-- //copyright -->
+
+</body>
+
 
 
 
