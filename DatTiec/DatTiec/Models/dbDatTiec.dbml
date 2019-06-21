@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DatTiec" Class="dbDatTiecDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=DatTiec;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DatTiecConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=COMPUTER;Initial Catalog=DatTiec;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DatTiecConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="UserAdmin" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -77,6 +77,13 @@
       <Association Name="HinhThuc_DonDatTiecNhap" Member="DonDatTiecNhaps" ThisKey="MaHinhThuc" OtherKey="MaHinhThuc" Type="DonDatTiecNhap" />
     </Type>
   </Table>
+  <Table Name="dbo.LoaiThucDon" Member="LoaiThucDons">
+    <Type Name="LoaiThucDon">
+      <Column Name="MaLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiThucDon_ThucDon" Member="ThucDons" ThisKey="MaLoai" OtherKey="MaLoai" Type="ThucDon" />
+    </Type>
+  </Table>
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -119,13 +126,6 @@
       <Column Name="Hinh" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="ThucDon_CTDonDat" Member="CTDonDats" ThisKey="MaMonAn" OtherKey="MaMonAn" Type="CTDonDat" />
       <Association Name="LoaiThucDon_ThucDon" Member="LoaiThucDon" ThisKey="MaLoai" OtherKey="MaLoai" Type="LoaiThucDon" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LoaiThucDon" Member="LoaiThucDons">
-    <Type Name="LoaiThucDon">
-      <Column Name="MaLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="LoaiThucDon_ThucDon" Member="ThucDons" ThisKey="MaLoai" OtherKey="MaLoai" Type="ThucDon" />
     </Type>
   </Table>
 </Database>

@@ -51,6 +51,9 @@ namespace DatTiec.Models
     partial void InsertHinhThuc(HinhThuc instance);
     partial void UpdateHinhThuc(HinhThuc instance);
     partial void DeleteHinhThuc(HinhThuc instance);
+    partial void InsertLoaiThucDon(LoaiThucDon instance);
+    partial void UpdateLoaiThucDon(LoaiThucDon instance);
+    partial void DeleteLoaiThucDon(LoaiThucDon instance);
     partial void InsertHoaDon(HoaDon instance);
     partial void UpdateHoaDon(HoaDon instance);
     partial void DeleteHoaDon(HoaDon instance);
@@ -63,13 +66,10 @@ namespace DatTiec.Models
     partial void InsertThucDon(ThucDon instance);
     partial void UpdateThucDon(ThucDon instance);
     partial void DeleteThucDon(ThucDon instance);
-    partial void InsertLoaiThucDon(LoaiThucDon instance);
-    partial void UpdateLoaiThucDon(LoaiThucDon instance);
-    partial void DeleteLoaiThucDon(LoaiThucDon instance);
     #endregion
 		
 		public dbDatTiecDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DatTiecConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DatTiecConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -154,6 +154,14 @@ namespace DatTiec.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<LoaiThucDon> LoaiThucDons
+		{
+			get
+			{
+				return this.GetTable<LoaiThucDon>();
+			}
+		}
+		
 		public System.Data.Linq.Table<HoaDon> HoaDons
 		{
 			get
@@ -183,14 +191,6 @@ namespace DatTiec.Models
 			get
 			{
 				return this.GetTable<ThucDon>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LoaiThucDon> LoaiThucDons
-		{
-			get
-			{
-				return this.GetTable<LoaiThucDon>();
 			}
 		}
 	}
@@ -1797,6 +1797,120 @@ namespace DatTiec.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiThucDon")]
+	public partial class LoaiThucDon : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaLoai;
+		
+		private string _TenLoai;
+		
+		private EntitySet<ThucDon> _ThucDons;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaLoaiChanging(int value);
+    partial void OnMaLoaiChanged();
+    partial void OnTenLoaiChanging(string value);
+    partial void OnTenLoaiChanged();
+    #endregion
+		
+		public LoaiThucDon()
+		{
+			this._ThucDons = new EntitySet<ThucDon>(new Action<ThucDon>(this.attach_ThucDons), new Action<ThucDon>(this.detach_ThucDons));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoai", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaLoai
+		{
+			get
+			{
+				return this._MaLoai;
+			}
+			set
+			{
+				if ((this._MaLoai != value))
+				{
+					this.OnMaLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._MaLoai = value;
+					this.SendPropertyChanged("MaLoai");
+					this.OnMaLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoai", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TenLoai
+		{
+			get
+			{
+				return this._TenLoai;
+			}
+			set
+			{
+				if ((this._TenLoai != value))
+				{
+					this.OnTenLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._TenLoai = value;
+					this.SendPropertyChanged("TenLoai");
+					this.OnTenLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiThucDon_ThucDon", Storage="_ThucDons", ThisKey="MaLoai", OtherKey="MaLoai")]
+		public EntitySet<ThucDon> ThucDons
+		{
+			get
+			{
+				return this._ThucDons;
+			}
+			set
+			{
+				this._ThucDons.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ThucDons(ThucDon entity)
+		{
+			this.SendPropertyChanging();
+			entity.LoaiThucDon = this;
+		}
+		
+		private void detach_ThucDons(ThucDon entity)
+		{
+			this.SendPropertyChanging();
+			entity.LoaiThucDon = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HoaDon")]
 	public partial class HoaDon : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2664,120 +2778,6 @@ namespace DatTiec.Models
 		{
 			this.SendPropertyChanging();
 			entity.ThucDon = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiThucDon")]
-	public partial class LoaiThucDon : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaLoai;
-		
-		private string _TenLoai;
-		
-		private EntitySet<ThucDon> _ThucDons;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaLoaiChanging(int value);
-    partial void OnMaLoaiChanged();
-    partial void OnTenLoaiChanging(string value);
-    partial void OnTenLoaiChanged();
-    #endregion
-		
-		public LoaiThucDon()
-		{
-			this._ThucDons = new EntitySet<ThucDon>(new Action<ThucDon>(this.attach_ThucDons), new Action<ThucDon>(this.detach_ThucDons));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoai", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MaLoai
-		{
-			get
-			{
-				return this._MaLoai;
-			}
-			set
-			{
-				if ((this._MaLoai != value))
-				{
-					this.OnMaLoaiChanging(value);
-					this.SendPropertyChanging();
-					this._MaLoai = value;
-					this.SendPropertyChanged("MaLoai");
-					this.OnMaLoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoai", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TenLoai
-		{
-			get
-			{
-				return this._TenLoai;
-			}
-			set
-			{
-				if ((this._TenLoai != value))
-				{
-					this.OnTenLoaiChanging(value);
-					this.SendPropertyChanging();
-					this._TenLoai = value;
-					this.SendPropertyChanged("TenLoai");
-					this.OnTenLoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiThucDon_ThucDon", Storage="_ThucDons", ThisKey="MaLoai", OtherKey="MaLoai")]
-		public EntitySet<ThucDon> ThucDons
-		{
-			get
-			{
-				return this._ThucDons;
-			}
-			set
-			{
-				this._ThucDons.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ThucDons(ThucDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.LoaiThucDon = this;
-		}
-		
-		private void detach_ThucDons(ThucDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.LoaiThucDon = null;
 		}
 	}
 }

@@ -164,6 +164,8 @@
     <Content Include="Content\css\superfish.css" />
     <Content Include="Content\css\touchTouch.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\07-copy-447x335.jpg" />
+    <Content Include="Content\images\77792ccb8da2c5-metropole_0136.jpg" />
     <Content Include="Content\images\arrowws.png" />
     <Content Include="Content\images\big1.jpg" />
     <Content Include="Content\images\big2.jpg" />
@@ -178,8 +180,13 @@
     <Content Include="Content\images\box_img2.jpg" />
     <Content Include="Content\images\box_img3.jpg" />
     <Content Include="Content\images\box_img4.jpg" />
+    <Content Include="Content\images\Che.jpg" />
+    <Content Include="Content\images\Daidientruongtinh-447x335.jpg" />
+    <Content Include="Content\images\DSC_0574-800x600.jpg" />
+    <Content Include="Content\images\DSC_1770-Copy-447x335.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\f_logo.png" />
+    <Content Include="Content\images\Hinh2-447x335.jpg" />
     <Content Include="Content\images\link_marker.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\magnify.png" />
@@ -203,6 +210,7 @@
     <Content Include="Content\images\pint.png" />
     <Content Include="Content\images\preloader.gif" />
     <Content Include="Content\images\totop.png" />
+    <Content Include="Content\images\tải xuống.jpg" />
     <Content Include="Content\js\blur.svg" />
     <Content Include="Content\js\forms.js" />
     <Content Include="Content\js\html5shiv.js" />
@@ -225,13 +233,23 @@
     <Content Include="Content\Login\webfonts\fa-regular-400.svg" />
     <Content Include="Content\Login\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Sanh\A.jpg" />
-    <Content Include="Content\ThucDon\BoNuong.jpg" />
+    <Content Include="Content\Sanh\B.jpg" />
+    <Content Include="Content\ThucDon\BanhHoiHeoQuay.jpg" />
+    <Content Include="Content\ThucDon\BoNuongLaLot.jpg" />
+    <Content Include="Content\ThucDon\che.jpg" />
     <Content Include="Content\ThucDon\CocaCola.jpg" />
     <Content Include="Content\ThucDon\GaHapNam.jpg" />
-    <Content Include="Content\ThucDon\HeoBanh.jpg" />
+    <Content Include="Content\ThucDon\goi-bo-rau-mam.jpg" />
+    <Content Include="Content\ThucDon\Heineken.jpg" />
+    <Content Include="Content\ThucDon\heo-rung-xao-lan.jpg" />
+    <Content Include="Content\ThucDon\Lau ghe chua cay.jpg" />
     <Content Include="Content\ThucDon\LauThai.jpg" />
+    <Content Include="Content\ThucDon\muc-hap-gung.jpg" />
+    <Content Include="Content\ThucDon\NuocLoc.jpg" />
+    <Content Include="Content\ThucDon\Pepsi.jpg" />
     <Content Include="Content\ThucDon\RauCau.jpg" />
     <Content Include="Content\ThucDon\SupCua.jpg" />
+    <Content Include="Content\ThucDon\Tiger.jpg" />
     <Content Include="Content\ThucDon\TomLanMe.jpg" />
     <Content Include="Content\ThucDon\XoiHatSen.jpg" />
     <Content Include="favicon.ico" />
@@ -242,11 +260,6 @@
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Models\dbDatTiec.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dbDatTiec.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\Login\webfonts\fa-brands-400.eot" />
     <Content Include="Content\Login\webfonts\fa-brands-400.ttf" />
     <Content Include="Content\Login\webfonts\fa-brands-400.woff" />
@@ -259,9 +272,11 @@
     <Content Include="Content\Login\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\Login\webfonts\fa-solid-900.woff" />
     <Content Include="Content\Login\webfonts\fa-solid-900.woff2" />
-    <None Include="Models\dbDatTiec.dbml.layout">
-      <DependentUpon>dbDatTiec.dbml</DependentUpon>
-    </None>
+    <Content Include="Models\dbDatTiec.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dbDatTiec.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -351,6 +366,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\dbDatTiec.dbml.layout">
+      <DependentUpon>dbDatTiec.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

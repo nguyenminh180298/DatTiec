@@ -229,7 +229,7 @@ namespace DatTiec.Controllers
             return RedirectToAction("Menu");
         }
 
-        public ActionResult XoaTatCaGMenu()
+        public ActionResult XoaTatCaMenu()
         {
             List<Menu> lstMenu = LayMenu();
             lstMenu.Clear();
@@ -264,6 +264,11 @@ namespace DatTiec.Controllers
         public ActionResult DatTiec(FormCollection collection)
         {
             DonDatTiec dt = new DonDatTiec();
+
+            var masanh = "SELECT MaSanh FROM DonDatTiec";
+            var mabuoi = "SELECT MaBuoi FROM DonDatTiec";
+            var ngaytochuc = "SELECT NgayToChuc FROM DonDatTiec";
+
             List<Menu> mn = LayMenu();
             NhanVien nv = (NhanVien)Session["TaiKhoan"];
             dt.MaNV = nv.MaNV;
@@ -276,7 +281,9 @@ namespace DatTiec.Controllers
             var sl = collection["soluong"];
 
             dt.MaNV = nv.MaNV;
+
             dt.NgayLap = DateTime.Now;
+
             var NgayToChuc = String.Format("{0:dd/MM/yyyy}", collection["NgayToChuc"]);
 
 
@@ -323,32 +330,42 @@ namespace DatTiec.Controllers
             {
                 ViewBag.ThongBao8 = "Phải nhập buối tổ chức";
             }
+
             else
             {
-                dt.HoTenKH = ht;
-                dt.DiaChi = dc;
-                dt.SDT = Convert.ToInt32(sdt);
-                dt.SLKhach = int.Parse(sl);
-                dt.MaNV = nv.MaNV;
-                dt.NgayLap = Convert.ToDateTime(DateTime.Now);
-                dt.NgayToChuc = Convert.ToDateTime(NgayToChuc);
-                dt.MaHinhThuc = int.Parse(hinhthuc);
-                dt.MaSanh = int.Parse(sanh);
-                dt.MaBuoi = int.Parse(buoi);
-                data.DonDatTiecs.InsertOnSubmit(dt);
-                data.SubmitChanges();
-                foreach (var item in mn)
+                if (String.Equals(sanh,masanh) && String.Equals(buoi,mabuoi) && String.Equals(NgayToChuc,ngaytochuc))
                 {
-                    CTDonDat ctdd = new CTDonDat();
-                    ctdd.MaDD = dt.MaDD;
-                    ctdd.MaMonAn = item.iMaMonAn;
-                    ctdd.SL = item.iSoluong;
-                    ctdd.DonGia = (int)item.dDonGia;
-                    data.CTDonDats.InsertOnSubmit(ctdd);
+                    ViewBag.ThongBao9 = "Tiệc này đã tồn tại";
                 }
-                data.SubmitChanges();
-                Session["Menu"] = null;
-                return RedirectToAction("XacNhanDonHang", "NhanVien");
+
+                else
+                {
+                    dt.HoTenKH = ht;
+                    dt.DiaChi = dc;
+                    dt.SDT = Convert.ToInt32(sdt);
+                    dt.SLKhach = int.Parse(sl);
+                    dt.MaNV = nv.MaNV;
+                    dt.NgayLap = Convert.ToDateTime(DateTime.Now);
+                    dt.NgayToChuc = Convert.ToDateTime(NgayToChuc);
+                    dt.MaHinhThuc = int.Parse(hinhthuc);
+                    dt.MaSanh = int.Parse(sanh);
+                    dt.MaBuoi = int.Parse(buoi);
+                    data.DonDatTiecs.InsertOnSubmit(dt);
+                    data.SubmitChanges();
+                    foreach (var item in mn)
+                    {
+                        CTDonDat ctdd = new CTDonDat();
+                        ctdd.MaDD = dt.MaDD;
+                        ctdd.MaMonAn = item.iMaMonAn;
+                        ctdd.SL = item.iSoluong;
+                        ctdd.DonGia = (int)item.dDonGia;
+                        data.CTDonDats.InsertOnSubmit(ctdd);
+                    }
+                    data.SubmitChanges();
+                    Session["Menu"] = null;
+                    return RedirectToAction("XacNhanDonHang", "NhanVien");
+                }
+                
             }
             return this.DatTiec();
             
